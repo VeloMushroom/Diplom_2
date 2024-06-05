@@ -8,6 +8,8 @@ import pojo.user.UserChange;
 import pojo.user.UserCreate;
 import com.github.javafaker.Faker;
 
+import java.time.LocalDateTime;
+
 public class ChangeUserDataTest {
 
     private final UserChecks check = new UserChecks();
@@ -22,7 +24,7 @@ public class ChangeUserDataTest {
         final UserCreate user = UserCreate.random();
         token = check.createdUserSuccessfully(client.userCreate(user));
 
-        UserChange userChange = new UserChange(faker.pokemon().name(), faker.chuckNorris().fact());
+        UserChange userChange = new UserChange("Ivan" + faker.name().firstName() + "@yandex.ru", "Velo" + faker.name().lastName());
         Response responseUserChange = userChageAuto.userChengeAuto(token, userChange);
         Assert.assertTrue(check.userAutoChage(responseUserChange));
     }
@@ -30,7 +32,7 @@ public class ChangeUserDataTest {
     @Test
     @DisplayName("Изменение данных неавторизованного пользователя")
     public void changeNotAutoUser() {
-        UserChange userChange = new UserChange(faker.app().name(), faker.app().version());
+        UserChange userChange = new UserChange("Velo" + faker.name().firstName() + LocalDateTime.now() + "@yandex.ru", "Ivan" + faker.name().lastName());
         Response responseUserChange = userChageAuto.userChengeNotAuto(userChange);
         Assert.assertEquals("You should be authorised", check.userNotAutoChage(responseUserChange));
     }

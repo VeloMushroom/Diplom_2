@@ -1,4 +1,4 @@
-import helpers.IngredientsClient;
+import helpers.ingredients.IngredientsClient;
 import helpers.order.OrderChecks;
 import helpers.order.OrderCreateClient;
 import helpers.order.OrderDownloadClient;
@@ -13,7 +13,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import pojo.order.OrderCreate;
 import pojo.user.UserCreate;
-
 import java.util.ArrayList;
 import java.util.Random;
 

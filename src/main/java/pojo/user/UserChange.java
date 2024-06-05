@@ -5,7 +5,6 @@ public class UserChange {
     private String name;
     private String email;
 
-
     public UserChange() {
     }
 

@@ -1,5 +1,6 @@
-package helpers;
+package helpers.ingredients;
 
+import helpers.Client;
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
 

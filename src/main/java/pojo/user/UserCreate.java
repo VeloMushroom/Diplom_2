@@ -1,6 +1,5 @@
 package pojo.user;
 
-import java.time.LocalDateTime;
 import com.github.javafaker.Faker;
 
 public class UserCreate {
@@ -19,7 +18,7 @@ public class UserCreate {
     }
 
     public static UserCreate random() {
-        return new UserCreate("Ivan" + faker.witcher().monster() + "@yandex.ru", "Mushroom" + LocalDateTime.now(), "Ivan" + faker.book().author());
+        return new UserCreate("Ivan" + faker.name().firstName() + "@yandex.ru", "password", "Ivan" + faker.name().lastName());
     }
 
     public String getEmail() {

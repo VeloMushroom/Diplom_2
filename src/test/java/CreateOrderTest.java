@@ -1,4 +1,4 @@
-import helpers.IngredientsClient;
+import helpers.ingredients.IngredientsClient;
 import helpers.order.OrderChecks;
 import helpers.order.OrderCreateClient;
 import helpers.user.UserChecks;
