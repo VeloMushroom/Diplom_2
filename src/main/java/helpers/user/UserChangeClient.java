@@ -14,8 +14,8 @@ public class UserChangeClient extends Client {
             .patch(USER_CHANGE_PATH);
     }
 
-    @Step("Change email authorization user")
-    public Response userChengeNotAuto() {
-        return spec().patch(USER_CHANGE_PATH);
+    @Step("Change email not authorization user")
+    public Response userChengeNotAuto(UserChange userChage) {
+        return spec().body(userChage).patch(USER_CHANGE_PATH);
     }
 }

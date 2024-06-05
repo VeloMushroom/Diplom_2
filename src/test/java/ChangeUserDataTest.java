@@ -1,7 +1,6 @@
 import helpers.user.*;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
-import io.restassured.response.ValidatableResponse;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
@@ -21,7 +20,7 @@ public class ChangeUserDataTest {
     public void changeAutoUser() {
         final UserCreateClient client = new UserCreateClient();
         final UserCreate user = UserCreate.random();
-        token = check.createdSuccessfully(client.userCreate(user));
+        token = check.createdUserSuccessfully(client.userCreate(user));
 
         UserChange userChange = new UserChange(faker.pokemon().name(), faker.chuckNorris().fact());
         Response responseUserChange = userChageAuto.userChengeAuto(token, userChange);
@@ -32,7 +31,7 @@ public class ChangeUserDataTest {
     @DisplayName("Изменение данных неавторизованного пользователя")
     public void changeNotAutoUser() {
         UserChange userChange = new UserChange(faker.app().name(), faker.app().version());
-        Response responseUserChange = userChageAuto.userChengeNotAuto();
+        Response responseUserChange = userChageAuto.userChengeNotAuto(userChange);
         Assert.assertEquals("You should be authorised", check.userNotAutoChage(responseUserChange));
     }
 

@@ -21,8 +21,8 @@ public class LoginUserTest {
     @DisplayName("Логин уникального пользователя")
     public void loginUniqueUserTest() {
         UserCreate user = UserCreate.random();
-        ValidatableResponse createResponse = client.userCreate(user);
-        token = check.createdSuccessfully(createResponse);
+        ValidatableResponse createUserResponse = client.userCreate(user);
+        token = check.createdUserSuccessfully(createUserResponse);
 
         String userEmail = user.getEmail();
         String userPassword = user.getPassword();

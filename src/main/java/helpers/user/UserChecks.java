@@ -8,8 +8,8 @@ import java.net.HttpURLConnection;
 public class UserChecks {
 
     @Step("Check user created successfully")
-    public String createdSuccessfully(ValidatableResponse createResponse) {
-        return createResponse
+    public String createdUserSuccessfully(ValidatableResponse createUserResponse) {
+        return createUserResponse
                 .assertThat()
                 .statusCode(HttpURLConnection.HTTP_OK)
                 .extract()

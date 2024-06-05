@@ -8,7 +8,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import pojo.user.UserCreate;
 
-public class CreateUserTest {
+public class CreateUserTests {
 
     private final UserCreateClient client = new UserCreateClient();
     private final UserChecks check = new UserChecks();
@@ -18,9 +18,9 @@ public class CreateUserTest {
     @DisplayName("Создание уникального пользователя")
     public void createUniqueUserTest() {
         UserCreate user = UserCreate.random();
-        ValidatableResponse createResponse = client.userCreate(user);
+        ValidatableResponse createUserResponse = client.userCreate(user);
 
-        token = check.createdSuccessfully(createResponse);
+        token = check.createdUserSuccessfully(createUserResponse);
         Assert.assertNotNull(token);
     }
 
@@ -28,8 +28,8 @@ public class CreateUserTest {
     @DisplayName("Создание уже зарегистрированого пользователя")
     public void createDublicateUserTest() {
         UserCreate user = UserCreate.random();
-        ValidatableResponse createResponse = client.userCreate(user);
-        token = check.createdSuccessfully(createResponse);
+        ValidatableResponse createUserResponse = client.userCreate(user);
+        token = check.createdUserSuccessfully(createUserResponse);
 
         String email = user.getEmail();
         UserCreate userDublicate = new UserCreate(email, "Password", "Name");
