@@ -18,7 +18,7 @@ public class UserCreate {
     }
 
     public static UserCreate random() {
-        return new UserCreate("Ivan" + faker.name().firstName() + "@yandex.ru", "password", "Ivan" + faker.name().lastName());
+        return new UserCreate("Mushroom" + faker.name().firstName() + "@yandex.ru", "password", "Ivan" + faker.name().lastName());
     }
 
     public String getEmail() {
